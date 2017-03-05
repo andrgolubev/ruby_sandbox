@@ -7,11 +7,11 @@ class Idea
   
   attr_reader :title, :description, :rank, :id
   
-  def initialize(attributes = {})
+  def initialize(attributes)
     @title = attributes['title']
     @description = attributes['description']
-    @rank = attributes['rank'] || 0
-    @id = attributes['id']
+    @rank = attributes['rank'].to_i || 0
+    @id = attributes['id'].to_i
   end
   
   def save

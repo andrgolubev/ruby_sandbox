@@ -1,7 +1,7 @@
 require 'yaml/store'
 
 module Constants
-  DATABASE_PATH = "db/ideabox"
+  DATABASE_PATH = "db/ideabox_db"
 end
 
 class IdeaStore
@@ -45,7 +45,6 @@ class IdeaStore
   def self.update(id, data)
     database.transaction do |db|
       db['ideas'][id] = data
-      db['ideas'][id]['rank'] = data['rank']
     end
   end
   

@@ -13,33 +13,32 @@ class IdeaBoxApp < Sinatra::Base
   end
   
   get '/' do #main page
-    erb :index, locals: {ideas: IdeaStore.all.sort, idea: Idea.new(params)}
+    erb :index, locals: {ideas: IdeaStore.all.sort}
   end
   
-  get '/edit/:id' do |id|
+  get '/edit/:id' do |id| #editing
     idea = IdeaStore.find(id.to_i)
     erb :edit, locals: {idea: idea}
   end
   
-  post '/' do    
+  post '/' do #creation
     IdeaStore.create(params[:idea])
     redirect '/'
   end
   
-  #TODO: fix rank system
-  post '/like/:id' do |id|
+  post '/like/:id' do |id| #rank updating
     idea = IdeaStore.find(id.to_i)
     idea.like!
     IdeaStore.update(id.to_i, idea.to_h)
     redirect '/'
   end
   
-  delete '/:id' do |id|
+  delete '/:id' do |id| #deletion
     IdeaStore.delete(id.to_i)
     redirect '/'
   end
   
-  put '/:id' do |id|
+  put '/:id' do |id| #editing - submit
     IdeaStore.update(id.to_i, params[:idea])
     redirect '/'
   end
