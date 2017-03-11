@@ -6,4 +6,11 @@ Rails.application.routes.draw do
   end
 
   resources :tags
+
+  resources :authors
+
+  resource :author_sessions, only: [:new, :create, :destroy]
+  get 'login' => 'author_sessions#new'
+  get 'logout' => 'author_sessions#destroy'
+  get 'logon' => 'authors#new'
 end
