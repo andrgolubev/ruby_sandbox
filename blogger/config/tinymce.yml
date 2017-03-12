@@ -1,0 +1,23 @@
+menubar: true
+paste_merge_formats: true
+paste_retain_style_properties: all
+toolbar:
+  - formatselect | fontselect fontsizeselect | bold italic underline strikethrough removeformat | alignleft aligncenter alignright alignjustify
+  - numlist bullist | indent outdent blockquote | hr | forecolor backcolor | undo redo | image link unlink
+  - searchreplace | preview
+plugins:
+  - link
+  - autolink
+  - image
+  - lists
+  - advlist
+  - paste
+  # - importcss
+  - wordcount
+  - colorpicker
+  - hr
+  - preview
+  - searchreplace
+  - textcolor
+  # - code
+  # - codesample

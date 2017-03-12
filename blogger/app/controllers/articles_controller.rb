@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_filter :require_login, except: [:index, :show] #only show if logged out 
+  before_filter :require_login, except: [:index, :show] #only show if logged out
 
   include ArticlesHelper
 
